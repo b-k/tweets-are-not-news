@@ -7,8 +7,10 @@
 // @grant       none
 // ==/UserScript==
 
-var excludes=["tweet", " lambast", " blast", " slam", "hits back at", "punches out at", " berate", " assail", "rips", "goes viral", "going viral"];
-var the_opinion_section_is_also_not_news=false;  //Set to true to hide the opinion section as well.
+var excludes=["tweet", " lambasts", " blasts", " slams", "hits back at", "punches out at", " berates", " assails",
+              " rips", "goes viral", "going viral", "fires back", "trade barbs"];
+var the_opinion_section_is_also_not_news=true;  //Set to true to hide the opinion section as well.
+
 
 function check_excludes(text){
   for (var x=0; x< excludes.length; x++)
@@ -32,6 +34,6 @@ for (var i = 0; i < blocks.length; i++){
 }
 
 if (the_opinion_section_is_also_not_news){
-    console.log("Blocking the opinion section. Remove last line of the Tweets are Not News script to restore it.")
+    console.log("As per an option setting in the script, also hiding the opinion section.")
     document.querySelector('[data-testid="block-Opinion"],.opinions-chain').style.cssText="display: none";
 }
