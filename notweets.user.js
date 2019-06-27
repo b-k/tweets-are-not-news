@@ -2,7 +2,7 @@
 // @name        Tweets are not news
 // @namespace   lambast.blast.slam
 // @description Removes items from news sites that are about one person insulting another.
-// @include     /https://.*(washingtonpost|wapo|nyt|nytimes).com/
+// @include     /https://.*(washingtonpost|wapo|nyt|nytimes|foxnews).com/
 // @version     1
 // @grant       none
 // ==/UserScript==
@@ -21,7 +21,7 @@ function check_excludes(text){
 
 console.log("Checking for headlines about tweets.");
 
-var blocks = document.querySelectorAll('.flex-stack,.assetWrapper');//flex-stack for WaPo, assetWrapper for NYT
+var blocks = document.querySelectorAll('.flex-stack,.assetWrapper,.info');//flex-stack for WaPo, assetWrapper for NYT, .info for Fox
 for (var i = 0; i < blocks.length; i++){
   var links=blocks[i].querySelectorAll('a');
   for (var j = 0; j < links.length; j++){
@@ -35,5 +35,5 @@ for (var i = 0; i < blocks.length; i++){
 
 if (the_opinion_section_is_also_not_news){
     console.log("As per an option setting in the script, also hiding the opinion section.")
-    document.querySelector('[data-testid="block-Opinion"],.opinions-chain').style.cssText="display: none";
+    document.querySelector('[data-testid="block-Opinion"],.opinions-chain,.js-opinion').style.cssText="display: none";
 }
