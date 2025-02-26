@@ -35,5 +35,5 @@ for (var i = 0; i < blocks.length; i++){
 
 if (the_opinion_section_is_also_not_news){
     console.log("As per an option setting in the script, also hiding the opinion section.")
-    document.querySelector('[data-testid="block-Opinion"],.opinions-chain,.js-opinion').style.cssText="display: none";
+    document.querySelector('[data-link-group="opinions"],.opinions-chain,.js-opinion').style.cssText="display: none";
 }
